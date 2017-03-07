@@ -14,8 +14,6 @@ spring:
     url: jdbc:postgresql://localhost:15432/schooldaily
     username: pgsuser
     password: pgspass
-
-spring:
   jpa:
     hibernate:
       ddl-auto: validate
@@ -23,5 +21,4 @@ spring:
 
 logging:
   level:
-    org:
-      springframework: DEBUG
+    org.springframework: DEBUG
