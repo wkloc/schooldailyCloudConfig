@@ -2,7 +2,7 @@ info:
     foo: bar
 
 server:
-  port: 8443
+  port: 8449
   ssl:
     key-store: classpath:keystore.p12
     key-store-password: pgssoft
