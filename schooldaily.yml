@@ -1,7 +1,7 @@
 info:
     foo: bar
 server:
-    port: 8442
+    port: 8443
 
 spring:
   datasource:
