@@ -2,3 +2,9 @@ info:
     foo: bar
 server:
     port: 8442
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:15432/schooldaily
+    username: pgsuser
+    password: pgspass
