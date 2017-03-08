@@ -1,8 +1,6 @@
 info:
     foo: bar
 
-spring.boot.version: 1.4.4.RELEASE
-
 server:
   port: 8443
   ssl:
