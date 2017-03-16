@@ -13,3 +13,30 @@ spring:
         git:
           uri: https://github.com/wkloc/schooldailyConfiguration
 
+security:
+  user:
+    name: cloudserveruser
+    password: cloudserverpassword
+
+
+#encrypt RSA passwords in properities
+
+#generate RSA key for encrypt and decrypt password in config file .yml - 'resource/schooldaily.jks'
+#keytool -genkeypair -alias schooldailykey -keyalg RSA -dname "CN=Scholdaily Server Cloud Config,OU=Unit,O=Organization,L=City,S=State,C=PL" -keypass pgsadmin -keystore schooldaily.jks -storepass pgsadmin2
+
+#download Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 8 Download
+#http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
+#Extract the jar files from the zip and save them in ${java.home}/jre/lib/security/
+
+#temporarily disable https for encode password because of 'curl: (60) SSL certificate problem: self signed certificate'
+#curl localhost:8440/encrypt -d mysecret
+#return: AQB2nUkYq1hcrBRRshWUmjBAYTix1RlRexwHRsZdQRGhjQ6nUj4MbcNBdsPh2MnM67oU6UumKcltMxgLA9v1N2TPn6quHgicvVbYuhI11C1vyKox665LRA5KdoeGY8sxoX5RDaIADNS5oZOye6R2WmwejnAVBN2Gy060S9SIjN2VH5Slz5s2Wyd1wgth5/UQvj9DzYxRJZ/q3WSN0xPSF9+3+XNQrLqlkPFNqXfnK2moIXOIP8THnql2XGcMJxBpVEDv9GZhqN+RHWQ1Pw7ahueEghKsDd50GXyymBpjYEL2n5UopUmJxg5yQiDXUa1DOSu4nlSlmQVD5jny0U+7WENB4i0lZ7EPPhM7Cs5yiCJVlpaFvBgnnM6YRm4PCCPRpxY=
+#curl localhost:8440/decrypt -d AQB2nUkYq1hcrBRRshWUmjBAYTix1RlRexwHRsZdQRGhjQ6nUj4MbcNBdsPh2MnM67oU6UumKcltMxgLA9v1N2TPn6quHgicvVbYuhI11C1vyKox665LRA5KdoeGY8sxoX5RDaIADNS5oZOye6R2WmwejnAVBN2Gy060S9SIjN2VH5Slz5s2Wyd1wgth5/UQvj9DzYxRJZ/q3WSN0xPSF9+3+XNQrLqlkPFNqXfnK2moIXOIP8THnql2XGcMJxBpVEDv9GZhqN+RHWQ1Pw7ahueEghKsDd50GXyymBpjYEL2n5UopUmJxg5yQiDXUa1DOSu4nlSlmQVD5jny0U+7WENB4i0lZ7EPPhM7Cs5yiCJVlpaFvBgnnM6YRm4PCCPRpxY=
+#return: mysecret
+
+encrypt:
+  keyStore:
+    location: classpath:/schooldaily.jks
+    password: pgsadmin2
+    alias: schooldailykey
+    secret: pgsadmin
