@@ -1,18 +1,18 @@
 server:
   port: 8440
-  ssl:
-    key-store: classpath:keystore.p12
-    key-store-password: pgssoft
-    keyStoreType: PKCS12
-    keyAlias: tomcat
+#  ssl:
+#    key-store: classpath:keystore.p12
+#    key-store-password: pgssoft
+#    keyStoreType: PKCS12
+#    keyAlias: tomcat
 
 spring:
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/wkloc/schooldailyConfiguration
-#          uri: ${user.home}/IdeaProjects/schooldailyConfiguration
+#          uri: https://github.com/wkloc/schooldailyConfiguration
+          uri: ${user.home}/IdeaProjects/schooldailyConfiguration
 
 security:
   user:
